@@ -14,6 +14,8 @@ return {
                 { "<leader>w", "Window" },
                 { "<leader>ws", "Split" },
                 { "<leader>c", "Code" },
+                { "<leader>r", "rename" },
+                { "go", "rename" },
             },
             -- your configuration comes here
             -- or leave it empty to use the default settings

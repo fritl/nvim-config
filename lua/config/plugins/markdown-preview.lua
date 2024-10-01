@@ -2,7 +2,7 @@ return {
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
+        build = "cd app && make install",
         config = function()
             vim.g.mkdp_auto_start = 1
             vim.g.mkdp_auto_close = true
