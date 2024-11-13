@@ -21,13 +21,6 @@ return {
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 		-- Keymaps for jumping between insert points
-		vim.keymap.set({ "i", "s" }, "<Tab>", function()
-			if luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", true)
-			end
-		end, { silent = true, desc = "Go to next insert point" })
 		vim.keymap.set({ "i", "s" }, "<S-tab>", function()
 			if luasnip.jumpable(-1) then
 				luasnip.jump(-1)
@@ -77,12 +70,15 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 				["<Tab>"] = cmp.mapping(function(fallback)
 					-- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+
 					if cmp.visible() then
 						local entry = cmp.get_selected_entry()
 						if not entry then
 							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
 						end
 						cmp.confirm()
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
 					else
 						fallback()
 					end

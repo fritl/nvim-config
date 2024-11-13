@@ -1,3 +1,4 @@
+vim.cmd("colorscheme catppuccin-frappe")
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -13,9 +14,9 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 if vim.fn.has("win32") == 1 then
-    vim.opt.undodir = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
+	vim.opt.undodir = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
 else
-    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
 
 vim.opt.undofile = true
