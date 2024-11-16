@@ -21,6 +21,7 @@ require("lazy").setup({
 		-- import your plugins
 		{ import = "config.plugins" },
 		{ import = "config.plugins.lsp" },
+		{ import = "config.plugins.debugging" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- automatically check for plugin updates
