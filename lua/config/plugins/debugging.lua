@@ -57,10 +57,11 @@ return {
 			vim.keymap.set("n", "<leader>dc", function()
 				dap.continue()
 			end, { desc = "Continue" })
-			dap.adapters.lldb = {
-				type = "executable",
-				name = "lldb",
-			}
+			vim.api.nvim_set_hl(0, "BreakpointLine", {
+				bg = "#444444",
+			})
+			vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "BreakpointLine", numhl = "" })
+			vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
 		end,
 	},
 }
