@@ -6,6 +6,9 @@ return {
 			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
+        config = function()
+            vim.g.copilot_enabled = false
+        end,
 		opts = {
 			-- See Configuration section for options
 		},
