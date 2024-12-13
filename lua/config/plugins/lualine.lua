@@ -11,8 +11,10 @@ return {
       violet = "#FF61EF",
       yellow = "#FFDA7B",
       red = "#FF4A4A",
-      fg = "#c3ccdc",
-      bg = "#112638",
+      --fg = "#c3ccdc",
+      fg = "#000000",
+      --bg = "#112638",
+      bg = "#FF0000",
       inactive_bg = "#2c3043",
     }
 
@@ -52,19 +54,15 @@ return {
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = my_lualine_theme,
+        theme = "catppuccin",
       },
       sections = {
-        lualine_x = {
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
-          },
-          { "encoding" },
-          { "fileformat" },
-          { "filetype" },
-        },
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "filetype", { "datetime", style = "%H:%M" } },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
     })
   end,
