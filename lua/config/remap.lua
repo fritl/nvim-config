@@ -18,3 +18,10 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down (Visual)" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up (Visual)" })
+vim.keymap.set("t", "<esc>", '<C-\\><C-N>"', { desc = "Exit Terminal" })
+vim.keymap.set("n", "<leader>wt", function()
+  vim.cmd.vnew()
+  vim.cmd.terminal()
+  local win_id = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_width(win_id, math.max(80, vim.api.nvim_win_get_height(win_id)))
+end, { desc = "Open terminal in split" })
