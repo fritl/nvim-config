@@ -1,3 +1,6 @@
 return {
-	"ThePrimeagen/vim-be-good",
+    {
+        "ThePrimeagen/vim-be-good",
+        cond = not vim.g.vscode,
+    },
 }

@@ -1,47 +1,48 @@
 return {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
-  config = function()
-    -- import mason
-    local mason = require("mason")
+    "williamboman/mason.nvim",
+    cond = not vim.g.vscode,
+    dependencies = {
+        "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
+    config = function()
+        -- import mason
+        local mason = require("mason")
 
-    -- import mason-lspconfig
-    local mason_lspconfig = require("mason-lspconfig")
+        -- import mason-lspconfig
+        local mason_lspconfig = require("mason-lspconfig")
 
-    local mason_tool_installer = require("mason-tool-installer")
+        local mason_tool_installer = require("mason-tool-installer")
 
-    -- enable mason and configure icons
-    mason.setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    })
+        -- enable mason and configure icons
+        mason.setup({
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗",
+                },
+            },
+        })
 
-    mason_lspconfig.setup({
-      -- list of servers for mason to install
-      ensure_installed = {
-        "html",
-        "somesass_ls",
-        "cssls",
-        "lua_ls",
-        "emmet_language_server",
-        "clangd",
-      },
-    })
+        mason_lspconfig.setup({
+            -- list of servers for mason to install
+            ensure_installed = {
+                "html",
+                "somesass_ls",
+                "cssls",
+                "lua_ls",
+                "emmet_language_server",
+                "clangd",
+            },
+        })
 
-    mason_tool_installer.setup({
-      ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "codelldb",
-      },
-    })
-  end,
+        mason_tool_installer.setup({
+            ensure_installed = {
+                "prettier", -- prettier formatter
+                "stylua", -- lua formatter
+                "codelldb",
+            },
+        })
+    end,
 }
