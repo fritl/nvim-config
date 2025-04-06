@@ -8,8 +8,6 @@ vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 
-vim.keymap.set("n", "<A-l>", "<cmd>tabnext<CR>", { desc = "Go to next tab" })
-vim.keymap.set("n", "<A-h>", "<cmd>tabprevious<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("n", "<A-k>", "<cmd>bprevious<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("n", "<A-j>", "<cmd>bnext<CR>", { desc = "Go to previous tab" })
 
