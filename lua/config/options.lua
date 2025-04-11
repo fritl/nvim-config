@@ -36,3 +36,6 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.opt.wrap = true
 vim.opt.textwidth = 80
+
+vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
