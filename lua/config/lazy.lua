@@ -29,3 +29,5 @@ require("lazy").setup({
         notify = false,
     },
 })
+--hi
+-- OMG

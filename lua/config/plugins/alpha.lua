@@ -6,22 +6,6 @@ return {
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
         local headers = {
-
-            {
-                "██╗    ██╗   ██╗███████╗███████╗    ██╗   ██╗██╗███╗   ███╗   ",
-                "██║    ██║   ██║██╔════╝██╔════╝    ██║   ██║██║████╗ ████║   ",
-                "██║    ██║   ██║███████╗█████╗      ██║   ██║██║██╔████╔██║   ",
-                "██║    ██║   ██║╚════██║██╔══╝      ╚██╗ ██╔╝██║██║╚██╔╝██║   ",
-                "██║    ╚██████╔╝███████║███████╗     ╚████╔╝ ██║██║ ╚═╝ ██║▄█╗",
-                "╚═╝     ╚═════╝ ╚══════╝╚══════╝      ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝",
-                "                                                              ",
-                "                ██████╗ ████████╗██╗    ██╗                   ",
-                "                ██╔══██╗╚══██╔══╝██║    ██║                   ",
-                "                ██████╔╝   ██║   ██║ █╗ ██║                   ",
-                "                ██╔══██╗   ██║   ██║███╗██║                   ",
-                "                ██████╔╝   ██║   ╚███╔███╔╝                   ",
-                "                ╚═════╝    ╚═╝    ╚══╝╚══╝                    ",
-            },
             {
                 "                                    ██████                                    ",
                 "                                ████▒▒▒▒▒▒████                                ",
@@ -108,7 +92,6 @@ return {
         -- Send config to alpha
         alpha.setup(dashboard.opts)
 
-        -- Neo-tree nach dem Alpha-Dashboard öffnen
         -- Disable folding on alpha buffer
         vim.cmd("autocmd FileType alpha setlocal nofoldenable")
     end,

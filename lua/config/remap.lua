@@ -5,9 +5,6 @@ vim.keymap.set("n", "<leader>wsv", "<C-w>v", { desc = "Split window vertically" 
 vim.keymap.set("n", "<leader>wsh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-
 vim.keymap.set("n", "<A-k>", "<cmd>bprevious<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("n", "<A-j>", "<cmd>bnext<CR>", { desc = "Go to previous tab" })
 
@@ -15,16 +12,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up (Visual)" })
 vim.keymap.set("t", "<esc>", '<C-\\><C-n>"', { desc = "Exit Terminal" })
 if not vim.g.vscode then
-    vim.keymap.set("n", "<leader>wt", function()
-        if vim.fn.has("win32") == 1 then
-            vim.cmd.terminal("powershell")
-        else
-            vim.cmd.terminal()
-        end
-        local win_id = vim.api.nvim_get_current_win()
-        vim.api.nvim_win_set_width(win_id, math.max(80, vim.api.nvim_win_get_height(win_id)))
-    end, { desc = "Open terminal in split" })
-
     local function open_floating_window(buffer)
         local width = vim.api.nvim_get_option("columns")
         local height = vim.api.nvim_get_option("lines")

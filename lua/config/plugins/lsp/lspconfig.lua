@@ -3,7 +3,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     cond = not vim.g.vscode,
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
+        -- "hrsh7th/cmp-nvim-lsp",
         "nvim-lua/plenary.nvim",
         "saghen/blink.cmp",
         { "antosha417/nvim-lsp-file-operations", config = true },
@@ -86,21 +86,6 @@ return {
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
                     cmd = clangd_cmd,
-                })
-            end,
-            ["lua_ls"] = function()
-                -- configure lua server (with special settings)
-                lspconfig["lua_ls"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            -- make the language server recognize "vim" global
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            completion = {},
-                        },
-                    },
                 })
             end,
         })
