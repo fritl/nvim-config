@@ -13,7 +13,7 @@ return {
                 { "<leader>t", "Tab .. / Trouble .." },
                 { "<leader>w", "Window" },
                 { "<leader>ws", "Split" },
-                { "<leader>c", "Code" },
+                { "<leader>c", "Terminal" },
                 { "<leader>d", "debug" },
             },
             -- your configuration comes here

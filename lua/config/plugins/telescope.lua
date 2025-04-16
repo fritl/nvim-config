@@ -7,6 +7,7 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-tree/nvim-web-devicons",
         "folke/todo-comments.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
         local telescope = require("telescope")
@@ -24,6 +25,11 @@ return {
         })
 
         telescope.setup({
+            extensions = {
+                ["ui-select"] = {
+                    require("telescope.themes").get_dropdown({}),
+                },
+            },
             defaults = {
                 path_display = { "smart" },
                 mappings = {
@@ -38,6 +44,9 @@ return {
         })
 
         telescope.load_extension("fzf")
+        -- To get ui-select loaded and working with telescope, you need to call
+        -- load_extension, somewhere after setup function:
+        require("telescope").load_extension("ui-select")
 
         -- set keymaps
         local keymap = vim.keymap -- for conciseness
