@@ -54,46 +54,73 @@ return {
                 },
             },
         })
-        mason_lspconfig.setup_handlers({
-            -- default handler for installed servers
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-            ["emmet_language_server"] = function()
-                -- configure emmet language server
-                lspconfig["emmet_language_server"].setup({
-                    capabilities = capabilities,
-                    filetypes = {
-                        "html",
-                        "typescriptreact",
-                        "javascriptreact",
-                        "css",
-                        "sass",
-                        "scss",
-                        "less",
-                        "svelte",
-                    },
-                })
-            end,
-            ["clangd"] = function()
-                local is_windows = vim.loop.os_uname().version:match("Windows")
-                local clangd_cmd = { "clangd", "--background-index" }
-
-                if is_windows then
-                    -- Prüfen, ob MinGW64 existiert, bevor der Pfad hinzugefügt wird
-                    local mingw_path = "C:\\mingw64\\bin\\*"
-                    if vim.fn.isdirectory("C:\\mingw64\\bin") == 1 then
-                        table.insert(clangd_cmd, "--query-driver=" .. mingw_path)
-                    end
-                end
-
-                lspconfig["clangd"].setup({
-                    capabilities = capabilities,
-                    cmd = clangd_cmd,
-                })
-            end,
+        mason_lspconfig.setup({
+            handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({
+                        capabilities = capabilities,
+                        on_attach = on_attach,
+                    })
+                end,
+                lua_ls = function()
+                    lspconfig.lua_ls.setup({
+                        settings = {
+                            Lua = {
+                                runtime = {
+                                    version = "LuaJIT",
+                                },
+                                diagnostics = {
+                                    globals = { "vim" },
+                                },
+                                workspace = {
+                                    library = { vim.env.VIMRUNTIME },
+                                },
+                            },
+                        },
+                    })
+                end,
+            },
         })
+        -- mason_lspconfig.setup_handlers({
+        --     -- default handler for installed servers
+        --     function(server_name)
+        --         lspconfig[server_name].setup({
+        --             capabilities = capabilities,
+        --         })
+        --     end,
+        --     ["emmet_language_server"] = function()
+        --         -- configure emmet language server
+        --         lspconfig["emmet_language_server"].setup({
+        --             capabilities = capabilities,
+        --             filetypes = {
+        --                 "html",
+        --                 "typescriptreact",
+        --                 "javascriptreact",
+        --                 "css",
+        --                 "sass",
+        --                 "scss",
+        --                 "less",
+        --                 "svelte",
+        --             },
+        --         })
+        --     end,
+        --     ["clangd"] = function()
+        --         local is_windows = vim.loop.os_uname().version:match("Windows")
+        --         local clangd_cmd = { "clangd", "--background-index" }
+        --
+        --         if is_windows then
+        --             -- Prüfen, ob MinGW64 existiert, bevor der Pfad hinzugefügt wird
+        --             local mingw_path = "C:\\mingw64\\bin\\*"
+        --             if vim.fn.isdirectory("C:\\mingw64\\bin") == 1 then
+        --                 table.insert(clangd_cmd, "--query-driver=" .. mingw_path)
+        --             end
+        --         end
+        --
+        --         lspconfig["clangd"].setup({
+        --             capabilities = capabilities,
+        --             cmd = clangd_cmd,
+        --         })
+        --     end,
+        -- })
     end,
 }
