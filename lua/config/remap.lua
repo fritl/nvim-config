@@ -11,13 +11,22 @@ vim.keymap.set("n", "<A-j>", "<cmd>bnext<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down (Visual)" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up (Visual)" })
 vim.keymap.set("t", "<esc>", '<C-\\><C-n>"', { desc = "Exit Terminal" })
+
+local transparent = true
+local function toggle_transparency()
+    transparent = not transparent
+    require("catppuccin").setup({ transparent_background = transparent })
+    vim.cmd.colorscheme("catppuccin-frappe")
+end
+vim.keymap.set("n", "<leader><A-t>", toggle_transparency, { desc = "Toggle Neovim background transparency" })
+
 if not vim.g.vscode then
     local function open_floating_window(buffer)
         local width = vim.api.nvim_get_option("columns")
         local height = vim.api.nvim_get_option("lines")
 
-        local win_width = math.floor(width * 0.8)
-        local win_height = math.floor(height * 0.8)
+        local win_width = math.floor(width * 0.9)
+        local win_height = math.floor(height * 0.9)
 
         local row = math.floor((height - win_height) / 2)
         local col = math.floor((width - win_width) / 2)
@@ -25,7 +34,7 @@ if not vim.g.vscode then
         local opts = {
             style = "minimal",
             relative = "editor",
-            border = "rounded",
+            border = "single",
             width = win_width,
             height = win_height,
             row = row,
