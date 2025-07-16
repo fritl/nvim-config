@@ -5,7 +5,7 @@ return {
         cond = not vim.g.vscode,
         priority = 1000,
         opts = {
-            transparent_background = true,
+            transparent_background = false,
             custom_highlights = function(colors)
                 return {
                     BlinkCmpGhostText = { fg = "#aaaaaa", bg = colors.none },

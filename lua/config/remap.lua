@@ -12,7 +12,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up (Visual)" })
 vim.keymap.set("t", "<esc>", '<C-\\><C-n>"', { desc = "Exit Terminal" })
 
-local transparent = true
+local transparent = false
 local function toggle_transparency()
     transparent = not transparent
     require("catppuccin").setup({ transparent_background = transparent })
