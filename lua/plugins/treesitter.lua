@@ -16,6 +16,8 @@ return {
                     "scss",
                     "html",
                     "python",
+                    "html",
+                    "latex",
                 },
                 ignore_install = {},
                 auto_install = false,
