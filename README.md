@@ -9,6 +9,18 @@ This branch includes a slimmer newer neovim config. This has lsp configured agai
 
 ## Installation
 
+If you are lazy you can use the install.sh script. It will check for missing dependencies. Try to install missing dependencies. Backup your old neovim config and install the new one.
+Either with wget
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/fritl/nvim-config/refs/heads/slim/install.sh)
+```
+or with curl
+```bash
+bash <(curl -s https://raw.githubusercontent.com/fritl/nvim-config/refs/heads/slim/install.sh)
+```
+>[!NOTE]
+> The script is only compatible with pacman (arch linux) and apt (debian based distros)
+
 ### Prerequisites
 
 **Important dependencies** Things that neovim won't work at all without
