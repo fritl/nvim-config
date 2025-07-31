@@ -4,7 +4,7 @@ Everything you need in a neovim config in my opinion
 
 ## Info
 This branch includes a slimmer newer neovim config. This has lsp configured again from scratch. Some things are added compared to the old branch and some things have been discarded. The old config will still be available.
-node, npm and a clipboard manager won't be installed by this script. Install [NodeJS + npm](https://nodejs.org/en/download) and for clipboard i recommend wl-clipboard if you are on wayland. Search for another clipboard manager if you are on x11.
+node, npm and a clipboard manager won't be installed by this script. Install [NodeJS + npm](https://nodejs.org/en/download). For clipboard manager I recommend wl-clipboard if you are on wayland. Search for another clipboard manager if you are on x11.
 >[!note]
 > C lsp might not work on especially windows. There is a fix for this in the old config but since i don't code in c anymore there is no need to copy the fix right now. Might do later.
 
