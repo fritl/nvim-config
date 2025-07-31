@@ -20,6 +20,7 @@ bash <(curl -s https://raw.githubusercontent.com/fritl/nvim-config/refs/heads/sl
 ```
 >[!NOTE]
 > The script is only compatible with pacman (arch linux) and apt (debian based distros)
+
 >[!NOTE]
 >node, npm and a clipboard manager won't be installed by this script. Install [NodeJS + npm](https://nodejs.org/en/download). For clipboard manager I recommend wl-clipboard if you are on wayland. Search for another clipboard manager if you are on x11.
 >The script also won't install a nerd font. I recommend [JetBrainsMono Nerd Font](https://www.programmingfonts.org/#jetbrainsmono). But feel free to choose any [Nerdfont](https://www.nerdfonts.com/)
