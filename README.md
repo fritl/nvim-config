@@ -48,6 +48,14 @@ bash <(curl -s https://raw.githubusercontent.com/fritl/nvim-config/refs/heads/sl
 - `fd` finder used by telescope probably improves performance
 - `pylatexenc` used by render-markdown.nvim to transform latex strings to appropriate unicode using latex2text
 - `clipboard manager` necessary for copying from / to the clipboard with the `"` register. This is very likely already installed but if you use a distro like arch this might not be on your system.
+- If you want jupyter notebook support via [Jupynium](github.com/kiyoon/jupynium.nvim/) you need to install some additional things
+  - `firefox` Only firefox provides the special api for this to work
+  - `mozilla geckodriver` Might be installed already. Check with `geckodriver -v`
+  - `Jupyter Notebook >=6.2, <7`
+  - More pip packages
+    - `notebook`
+    - `nbclassic`
+    - `jupyter-console`
 
 **Probably already installed** Things that are very likely already installed on your system
 <details>
