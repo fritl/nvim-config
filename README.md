@@ -47,7 +47,10 @@ bash <(curl -s https://raw.githubusercontent.com/fritl/nvim-config/refs/heads/sl
 - `ripgrep` for live grep with telescope
 - `fd` finder used by telescope probably improves performance
 - `pylatexenc` used by render-markdown.nvim to transform latex strings to appropriate unicode using latex2text
-- `clipboard manager` necessary for copying from / to the clipboard with the `"` register. This is very likely already installed but if you use a distro like arch this might not be on your system.
+- `clipboard manager` necessary for copying from / to the clipboard with the `"` register. This is very likely already installed but if you use a distro like arch this might not be on your system.\
+
+
+Packages in this category below this point are not yet in the install script and need to be installed manually.
 - If you want jupyter notebook support via [Jupynium](github.com/kiyoon/jupynium.nvim/) you need to install some additional things
   - `firefox` Only firefox provides the special api for this to work
   - `mozilla geckodriver` Might be installed already. Check with `geckodriver -v`
