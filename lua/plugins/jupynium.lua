@@ -5,7 +5,7 @@ return {
         "kiyoon/jupynium.nvim",
 
         build = (vim.loop.os_uname().sysname == "Windows_NT") and
-            "python3 -m pip install --user ." or
+            "python -m pip install --user ." or
             "/usr/bin/env bash -c 'python3 -m venv venv && source venv/bin/activate && pip3 install .'",
         -- build = "uv pip install . --python=$HOME/.virtualenvs/jupynium/bin/python",
         -- build = "conda run --no-capture-output -n jupynium pip install .",
