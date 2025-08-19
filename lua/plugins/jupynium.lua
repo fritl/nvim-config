@@ -12,7 +12,7 @@ return {
         config = function()
             local plugin_path = vim.fn.stdpath("data") .. "/lazy/jupynium.nvim/"
             require("jupynium").setup({
-                python_host = (vim.loop.os_uname().sysname == "Windows_NT") and "python3" or
+                python_host = (vim.loop.os_uname().sysname == "Windows_NT") and "python" or
                     plugin_path .. "venv/bin/python",
                 default_notebook_URL = "localhost:8888/",
             })
