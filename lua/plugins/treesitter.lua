@@ -8,9 +8,7 @@ return {
                 ensure_installed = {
                     "c",
                     "lua",
-                    "vim",
                     "vimdoc",
-                    "query",
                     "javascript",
                     "css",
                     "scss",
