@@ -55,5 +55,3 @@ This installation guide assumes you have a freshly installed windows machine, bu
 > [!Note]
 > After opening neovim one might think that the colorscheme was not installed or configured properly because the screen is just black. This is simply because the background color is transparent by default. You can press <kbd>\<leader>\<A-t></kbd> which translates to pressing <kbd>Space</kbd> shortly then <kbd>Alt</kbd> and <kbd>t</kbd> at the same time. You can change whether your neovim is transparent when opening by changing the variable `transparent` `config/remap.lua` and changing the variable `opts.transparent_background` in `/config/plugins/catppuccin.lua`
 
-
-## Todo: List of plugins and keymaps
