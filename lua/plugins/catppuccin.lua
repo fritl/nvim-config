@@ -15,7 +15,6 @@ return {
                 mason = true,
                 cmp = false,
                 copilot_vim = true,
-                which_key = true,
                 lsp_trouble = true,
                 render_markdown = true,
                 telescope = {

@@ -14,15 +14,22 @@ vim.opt.foldmethod = "expr"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+local undo_path
 if vim.fn.has("win32") == 1 then
-	vim.opt.undodir = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
+	undo_path = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
 else
-	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+	undo_path = os.getenv("HOME") .. "/.vim/undodir"
 end
+vim.fn.mkdir(undo_path, "p")
+vim.opt.undodir = undo_path
 
 vim.opt.undofile = true
 
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.cursorline = true
 
 vim.opt.termguicolors = true
 
