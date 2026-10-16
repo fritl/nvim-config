@@ -7,6 +7,16 @@ This branch includes a slimmer newer neovim config. This has lsp configured agai
 >[!note]
 > C lsp might not work on especially windows. There is a fix for this in the old config but since i don't code in c anymore there is no need to copy the fix right now. Might do later.
 
+## Custom commands
+- `:LightMode` — toggles between catppuccin **mocha** (dark) and **latte** (light)
+- `:ToggleTransparency` — toggles catppuccin's transparent background on/off
+
+## Formatting
+Formatting happens automatically on every save (`BufWritePre`) and is handled by [conform.nvim](https://github.com/stevearc/conform.nvim).
+- Every filetype is formatted (including those without an entry in `conform.lua` via the LSP fallback).
+- Formatters run as real binaries, so **local project configs are respected**: `.prettierrc` / `.editorconfig` (prettierd), `rustfmt.toml`, `.clang-format`, `pyproject.toml` (ruff), `.stylua.toml`, etc.
+- Formatter binaries are installed through Mason (`ensure_installed` in `lsp/mason.lua`).
+
 ## Installation
 
 If you are lazy you can use the install.sh script. It will check for missing dependencies. Try to install missing dependencies. Backup your old neovim config and install the new one.
