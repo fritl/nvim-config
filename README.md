@@ -20,7 +20,7 @@ SQL is handled by [vim-dadbod](https://github.com/tpope/vim-dadbod) plus [dadbod
 - **Schema selection (DBeaver-style):** each `psql` execution is a fresh session, so a `SET search_path` in one query won't persist to the next. The workaround that *does* persist: put the schema in the connection URL (`?options=-csearch_path%3Dmyschema`) and add one `lua/dbs.lua` entry per schema. Pick it per-buffer with `<leader>dc` — SQL completion for unqualified names follows the same search_path. Alternatively just qualify names (`schema.table`) or run `SET search_path` in the same execution as the query that needs it.
 - Queries in a file are separated by blank lines, so "query around cursor" is just paragraph selection.
 - Completion in SQL buffers is schema-aware (tables/columns from the live connection), provided by blink.cmp through dadbod-completion.
-- Queries are never executed on save (`db_ui_execute_on_save = 0`); execution is always explicit. Saving only formats (via conform → sqlfluff, `dialect` from the local `.sqlfluff` / `pyproject.toml` if present).
+- Queries are never executed on save (`db_ui_execute_on_save = 0`); execution is always explicit. Saving formats through the **LSP fallback**: SQL has no external formatter entry, so conform routes it to the attached SQL LSP (`postgres-language-server` / `postgres_lsp` installed via Mason). If no formatting-capable server is attached to the buffer, saving simply saves unformatted (`:ConformInfo` shows what runs).
 
 ### SQL keymaps (buffer-local in SQL files)
 - `<leader>dc` — pick the connection for this buffer
