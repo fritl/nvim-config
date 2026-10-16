@@ -16,6 +16,7 @@ return {
 				"python",
 				"latex",
 				"java",
+				"sql",
 				-- tsx parser is used for .tsx files (and covers JSX syntax)
 				"tsx",
 			},

@@ -1,0 +1,15 @@
+-- Example connection definitions.
+--
+-- Copy this file to lua/dbs.lua and fill in your real URLs. lua/dbs.lua is
+-- gitignored, so credentials never end up in the repo. Every table entry
+-- shows up in the dadbod-ui sidebar and in the <leader>dc picker.
+--
+--   cp dbs.lua.example lua/dbs.lua
+
+return {
+	-- { name = "lecture-db",  url = "postgres://user:password@localhost:5432/lecturedb" },
+	-- { name = "school-server", url = "postgres://user:password@school.example.edu:5432/school" },
+	-- One entry per schema: search_path via the connection URL makes every
+	-- query (and the completion) unqualified-name aware for that schema
+	-- { name = "physik-schema", url = "postgres://user:password@localhost:5432/lecturedb?options=-csearch_path%3Dphysik" },
+}

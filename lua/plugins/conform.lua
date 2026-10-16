@@ -18,6 +18,7 @@ return {
             css = { "prettierd" },
             scss = { "prettierd" },
             markdown = { "prettierd" },
+            sql = { "sqlfluff" },
             typst = { "typstyle" },
         },
     },

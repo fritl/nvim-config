@@ -10,6 +10,24 @@ This branch includes a slimmer newer neovim config. This has lsp configured agai
 ## Custom commands
 - `:LightMode` — toggles between catppuccin **mocha** (dark) and **latte** (light)
 - `:ToggleTransparency` — toggles catppuccin's transparent background on/off
+- `:DBERD <schema>` — generates an ER diagram (Mermaid) from the current PostgreSQL connection and opens it in the browser. Also writes a raw `.mmd` file to `~/.local/share/nvim/erd/` that you can render offline with e.g. `mmdc` or any mermaid renderer
+
+## SQL
+SQL is handled by [vim-dadbod](https://github.com/tpope/vim-dadbod) plus [dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui) and [dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion).
+- Requires the `psql` CLI (package `postgresql-client` / `postgresql-libs`).
+- Connections are stored in a gitignored `lua/dbs.lua` — copy `dbs.lua.example` and fill in your URLs. Credentials never enter the repo.
+- Each SQL buffer remembers its own connection, so multiple lesson files can use different databases at once.
+- **Schema selection (DBeaver-style):** each `psql` execution is a fresh session, so a `SET search_path` in one query won't persist to the next. The workaround that *does* persist: put the schema in the connection URL (`?options=-csearch_path%3Dmyschema`) and add one `lua/dbs.lua` entry per schema. Pick it per-buffer with `<leader>dc` — SQL completion for unqualified names follows the same search_path. Alternatively just qualify names (`schema.table`) or run `SET search_path` in the same execution as the query that needs it.
+- Queries in a file are separated by blank lines, so "query around cursor" is just paragraph selection.
+- Completion in SQL buffers is schema-aware (tables/columns from the live connection), provided by blink.cmp through dadbod-completion.
+- Queries are never executed on save (`db_ui_execute_on_save = 0`); execution is always explicit. Saving only formats (via conform → sqlfluff, `dialect` from the local `.sqlfluff` / `pyproject.toml` if present).
+
+### SQL keymaps (buffer-local in SQL files)
+- `<leader>dc` — pick the connection for this buffer
+- `<leader>dx` — execute query around cursor (blank-line separated); in visual mode executes the selection
+- `<leader>dX` — execute whole file
+- `<leader>dE` — generate the ER diagram (`:DBERD`)
+- `<leader>du` — toggle the database UI sidebar
 
 ## Formatting
 Formatting happens automatically on every save (`BufWritePre`) and is handled by [conform.nvim](https://github.com/stevearc/conform.nvim).
